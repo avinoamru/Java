@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 public class Factorial {
-    public static void main(String[] args){
+    @SuppressWarnings("resource")
+	public static void main (String[] args){
         Scanner inputNum = new Scanner(System.in);
-        System.out.print("Enter number: ");
-        int num = inputNum.nextInt();
-        int i;
+        System.out.println("Enter number: ");
+        long num = inputNum.nextLong();
+        long i;
         for(i = num-1; i >= 1; i--){
             num *= i;
         }

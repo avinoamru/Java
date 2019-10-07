@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Calculator {
-    public static void main (String[] args){
+    @SuppressWarnings("resource")
+	public static void main (String[] args){
         Scanner inputNum1 = new Scanner(System.in);
         Scanner inputNum2 = new Scanner(System.in);
         Scanner inputSymbol = new Scanner(System.in);
