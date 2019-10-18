@@ -17,9 +17,10 @@ public class GameOfLife {
 	static int x;
 	static int y;
 
+
 	static String liveCell = "[#]", deadCell = "[ ]";
 
-	static void cellChecker() {
+	static boolean cellChecker(String gridScreen) {
 		for (int x = 0; x < rows; x++) {
 			for (int y = 0; y < cols; y++) {
 				if (grid[x][y] == false) {
@@ -31,15 +32,29 @@ public class GameOfLife {
 			}
 			System.out.println();
 		}
+		return false;
 	}
 
 	static int neighbors(boolean b) {
 		int count = 0;
 		boolean neighbors = grid[x-1][y] && grid[x+1][y] && grid [x][y-1] && grid [x][y+1] && grid[x-1][y-1] && grid[x+1][y+1] && grid[x-1][y+1] && grid[x+1][y-1];
-		while (neighbors == true) {
-			count++;
-		} return count;
-		
+		if (neighbors != grid[-1][8] && grid[8][-1] && grid[-1][-1] && grid[8][8]) {
+			while (neighbors == true) {
+				count++;
+			}
+		}
+		 return count;
+		}
+
+
+	static void refreshScreen(){
+		String frontGrid = " ";
+		String backGrid = " ";
+		for (int refresh = 1; refresh > 0; refresh++){
+			System.out.println(cellChecker(frontGrid));
+		}
+
+
 	}
 
 	static void rules() {
@@ -56,7 +71,9 @@ public class GameOfLife {
 	}
 
 	public static void main(String[] args) {
-		cellChecker();
+
+//		cellChecker();
+		refreshScreen();
 		rules();
 
 	}
